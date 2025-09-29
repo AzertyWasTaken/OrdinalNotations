@@ -4,7 +4,8 @@ function limit(n) {
 
 function expand(a, n) {
     let z = a.pop();
-    if (z > 0) {
+    
+    if (z && z > 0) {
         for (let i = 0; i < n; i++) {
             a.push(z - 1);
         }
