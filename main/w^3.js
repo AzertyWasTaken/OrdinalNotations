@@ -1,5 +1,6 @@
 function limit(n) {
     let a = [];
+    
     for (let i = 0; i < n; i++) {
         a.push(2);
     }

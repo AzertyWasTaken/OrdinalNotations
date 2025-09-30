@@ -4,6 +4,7 @@ function limit(n) {
 
 function expandSub(a, n) {
     let z = a.pop();
+    
     if (z > 0) {
         for (let i = 0; i < n; i++) {
             a.push(z - 1);
@@ -17,7 +18,7 @@ function expand(a, n) {
 
     if (z && z.length > 0) {
         let s = z[z.length - 1] == 0;
-        z = expandSub(z, n);
+        expandSub(z, n);
 
         if (s) {
             for (let i = 0; i < n; i++) {
