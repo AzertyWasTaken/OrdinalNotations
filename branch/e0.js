@@ -10,7 +10,7 @@ function limit(n) {
 function popLastNum(a, n) {
     let i = a.length - 1;
 
-    while (i > 0 && (a[i] >= n)) {
+    while (i > 0 && a[i] >= n) {
         i--;
     }
     return a.splice(i);
