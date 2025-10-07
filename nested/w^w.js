@@ -1,10 +1,5 @@
 function limit(n) {
-    let a = [[],0];
-    
-    for (let i = 0; i < n; i++) {
-        a = [a,0];
-    }
-    return a;
+    return [[], n];
 }
 
 function expand(a, n) {
@@ -18,7 +13,7 @@ function expand(a, n) {
 
         if (z > 0) {
             for (let i = 0; i < n; i++) {
-                a = [a,z - 1];
+                a = [a, z - 1];
             }
         }
     }

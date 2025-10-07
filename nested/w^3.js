@@ -1,8 +1,8 @@
 function limit(n) {
-    let a = [[],0];
+    let a = [];
     
     for (let i = 0; i < n; i++) {
-        a = [a,0];
+        a = [a, 2];
     }
     return a;
 }
@@ -18,11 +18,11 @@ function expand(a, n) {
 
         if (z == 2) {
             for (let i = 0; i < n; i++) {
-                a = [a,1];
+                a = [a, 1];
             }
         } else if (z == 1) {
             for (let i = 0; i < n; i++) {
-                a = [a,0];
+                a = [a, 0];
             }
         }
     }
