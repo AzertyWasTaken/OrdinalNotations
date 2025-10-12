@@ -10,18 +10,18 @@ function limit(n) {
 }
 
 function rankOrd(a, b) {
-    for (let i = 0; i < a.length; i++) {
+    for (let i = 0; i < Math.min(a.length, b.length); i++) {
         if (a[i] != b[i]) {
             return a[i] == 1;
         }
     }
-    return a.length >= b.length
+    return a.length >= b.length;
 }
 
-function popLastNum(a, n) {
+function popLastSeq(a, b) {
     let i = a.length - 1;
 
-    while (i > 0 && rankOrd(a[i], n)) {
+    while (i > 0 && rankOrd(a[i], b)) {
         i--;
     }
     return a.splice(i);
@@ -31,7 +31,7 @@ function expand(a, n) {
     let z = a.pop();
 
     if (z && z.length > 0) {
-        let y = popLastNum(a, z);
+        let y = popLastSeq(a, z);
     
         for (let i = 0; i < n; i++) {
             a = a.concat(JSON.parse(JSON.stringify(y)));
