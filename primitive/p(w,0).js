@@ -52,4 +52,4 @@ console.log(JSON.stringify(expand([[],[1],[1,0]], 3)));
 console.log(JSON.stringify(expand([[],[2],[0],[2]], 3)));
 console.log(JSON.stringify(expand([[],[2],[1],[2],[1,0],[2]], 3)));
 console.log(JSON.stringify(expand([[],[2],[2]], 3)));
-console.log(JSON.stringify(expand([[],[2],[2,2]], 3)));
+console.log(JSON.stringify(expand([[],[3],[3,2]], 3)));
