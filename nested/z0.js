@@ -17,42 +17,29 @@ function isSuccessor(a) {
 }
 
 function expand(a, n) {
-    let z = a[2];
-    let y = a[1];
-
-    if (a.length > 0 && a[0].length > 0) {
+    if (a[0] && a[0].length > 0) {
         a[0] = expand(a[0], n);
 
-    } else if (y && y.length > 0) {
-        a = [];
+    } else if (a[1] && a[1].length > 0) {
+        let s = isSuccessor(a[1]);
+        a[1] = expand(a[1], n);
 
-        if (y.length > 0) {
-            let s = isSuccessor(y);
-            y = expand(y, n);
-
-            if (s) {
-                for (let i = 0; i < n; i++) {
-                    a = [a, y, z];
-                }
-            } else {
-                a = [a, y, z];
+        if (s) {
+            for (let i = 0; i < n; i++) {
+                a[0] = a.slice();
             }
         }
-    } else if (z) {
-        a = [];
+    } else if (a[2] && a[2].length > 0) {
+        let s = isSuccessor(a[2]);
+        a[2] = expand(a[2], n);
 
-        if (z.length > 0) {
-            let s = isSuccessor(z);
-            z = expand(z, n);
-
-            if (s) {
-                for (let i = 0; i < n; i++) {
-                    a = [[], a, z];
-                }
-            } else {
-                a = [[], a, z];
+        if (s) {
+            for (let i = 0; i < n; i++) {
+                a[1] = a.slice();
             }
         }
+    } else {
+        a = [];
     }
     return a;
 }

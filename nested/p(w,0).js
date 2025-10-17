@@ -29,21 +29,17 @@ function expand(a, n) {
     if (a.length == 1 && a[0].length == 0) {
         a.pop();
 
-    } else if (a.length > 0 && a[0].length > 0) {
-        a[0] = expand(a[0], n);
-
     } else if (a.length > 0) {
         let p = firstNonZero(a);
         let s = isSuccessor(a[p]);
-        let z = expand(a[p], n);
-        a[p] = z;
+        a[p] = expand(a[p], n);
 
-        if (s) {
-            for (let i = 0; i < n; i++) {
-                a[p - 1] = a.slice();
-            }
+        if (p > 0 && s) {
             while (a[a.length - 1].length == 0 && a.length > 1) {
                 a.pop();
+            }
+            for (let i = 0; i < n; i++) {
+                a[p - 1] = a.slice();
             }
         }
     }
@@ -54,7 +50,7 @@ console.log(JSON.stringify(limit(3)));
 console.log(JSON.stringify(expand([], 3)));
 console.log(JSON.stringify(expand([[[[]]]], 3)));
 console.log(JSON.stringify(expand([[[],[[]]],[[]]], 3)));
-console.log(JSON.stringify(expand([[],[[],[[]]]], 3)));
+console.log(JSON.stringify(expand([[],[[],[[[]]]]], 3)));
 console.log(JSON.stringify(expand([[],[],[[]]], 3)));
 console.log(JSON.stringify(expand([[],[],[[[]]]], 3)));
 console.log(JSON.stringify(expand([[],[],[],[[[]]]], 3)));

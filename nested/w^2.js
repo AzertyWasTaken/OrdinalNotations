@@ -12,10 +12,10 @@ function expand(a, n) {
         a[0] = expand(a[0], n);
 
     } else if (a[1] == 1) {
-        a = [];
+        a[1] = 0;
 
         for (let i = 0; i < n; i++) {
-            a = [a, 0];
+            a[0] = a.slice();
         }
     } else {
         a = [];

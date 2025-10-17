@@ -3,19 +3,17 @@ function limit(n) {
 }
 
 function expand(a, n) {
-    let z = a[1];
-
-    if (a.length > 0 && a[0].length > 0) {
+    if (a[0] && a[0].length > 0) {
         a[0] = expand(a[0], n);
 
+    } else if (a[1] > 0) {
+        a[1]--;
+
+        for (let i = 0; i < n; i++) {
+            a[0] = a.slice();
+        }
     } else {
         a = [];
-
-        if (z > 0) {
-            for (let i = 0; i < n; i++) {
-                a = [a, z - 1];
-            }
-        }
     }
     return a;
 }

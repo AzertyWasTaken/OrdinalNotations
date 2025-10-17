@@ -30,26 +30,20 @@ function expandSub(a, n) {
 }
 
 function expand(a, n) {
-    let z = a[1];
-
-    if (a.length > 0 && a[0].length > 0) {
+    if (a[0] && a[0].length > 0) {
         a[0] = expand(a[0], n);
 
-    } else if (z) {
-        a = [];
+    } else if (a[1] && a[1].length > 0) {
+        let s = isSuccessor(a[1]);
+        a[1] = expandSub(a[1], n);
 
-        if (z.length > 0) {
-            let s = isSuccessor(z);
-            z = expandSub(z, n);
-
-            if (s) {
-                for (let i = 0; i < n; i++) {
-                    a = [a, z];
-                }
-            } else {
-                a = [a, z];
+        if (s) {
+            for (let i = 0; i < n; i++) {
+                a[0] = a.slice();
             }
-        }
+         }
+    } else {
+        a = [];
     }
     return a;
 }
